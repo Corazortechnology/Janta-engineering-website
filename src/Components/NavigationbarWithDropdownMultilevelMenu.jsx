@@ -13,11 +13,11 @@ import {
   MenuItem,
 } from "@material-tailwind/react";
 import {
-  FaChevronDown, // Replacing ChevronDownIcon
-  FaBars, // Replacing Bars3Icon
-  FaTimes, // Replacing XMarkIcon
-  FaChevronUp, // Replacing ChevronUpIcon
-} from "react-icons/fa"; // Importing FontAwesome icons
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+  ChevronUpIcon,
+} from "@heroicons/react/24/outline";
 
 const nestedMenuItems = [
   {
@@ -36,11 +36,13 @@ const nestedMenuItems = [
 
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [openNestedMenu, setOpenNestedMenu] = React.useState(false);
+  const [openNestedMenu, setopenNestedMenu] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = nestedMenuItems.map(({ title }, key) => (
     <a href="#" key={key}>
-      <MenuItem>{title}</MenuItem>
+      <MenuItem className="hover:bg-gray-100 hover:text-blue-500 transition-colors duration-150 px-4 py-2 flex justify-start ml-2 focus:outline-none focus:ring-0 text-lg">
+        {title}
+      </MenuItem>
     </a>
   ));
 
@@ -49,23 +51,26 @@ function NavListMenu() {
       <Menu
         open={isMenuOpen}
         handler={setIsMenuOpen}
-        placement="bottom"
+        placement="bottom-start"
         allowHover={true}
+        offset={10}
       >
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
-              className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
+              className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900 hover:bg-gray-100 rounded-md transition-all duration-200 text-lg"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
               Blocks
-              <FaChevronDown
+              <ChevronDownIcon
+                strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
                   isMenuOpen ? "rotate-180" : ""
                 }`}
               />
-              <FaChevronDown
+              <ChevronDownIcon
+                strokeWidth={2.5}
                 className={`block h-3 w-3 transition-transform lg:hidden ${
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
@@ -73,28 +78,36 @@ function NavListMenu() {
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="hidden rounded-xl lg:block">
+
+        <MenuList className="lg:block bg-white rounded-lg shadow-lg p-4 mt-1 transition-all duration-100 text-lg flex justify-start">
           <Menu
             placement="right-start"
             allowHover
-            offset={15}
+            offset={10}
             open={openNestedMenu}
-            handler={setOpenNestedMenu}
+            handler={setopenNestedMenu}
           >
-            <MenuHandler className="flex items-center justify-between">
-              <MenuItem>
+            <MenuHandler className="flex items-center justify-between ml-3">
+              <MenuItem className="hover:bg-gray-100 hover:text-blue-500 rounded-md transition-colors duration-150 py-2 px-4 h-auto flex justify-start">
                 Figma
-                <FaChevronUp
+                <ChevronUpIcon
+                  strokeWidth={2.5}
                   className={`h-3.5 w-3.5 transition-transform ${
-                    openNestedMenu ? "rotate-90" : ""
+                    isMenuOpen ? "rotate-90" : ""
                   }`}
                 />
               </MenuItem>
             </MenuHandler>
-            <MenuList className="rounded-xl">{renderItems}</MenuList>
+            <MenuList className="rounded-lg shadow-lg bg-white ml-2">
+              {renderItems}
+            </MenuList>
           </Menu>
-          <MenuItem>React</MenuItem>
-          <MenuItem>TailwindCSS</MenuItem>
+          <MenuItem className="hover:bg-gray-100 hover:text-blue-500 rounded-md transition-colors duration-150 py-2 px-4 h-auto flex justify-start">
+            React
+          </MenuItem>
+          <MenuItem className="hover:bg-gray-100 hover:text-blue-500 rounded-md transition-colors duration-150 py-2 px-4 h-auto flex justify-start">
+            TailwindCSS
+          </MenuItem>
         </MenuList>
       </Menu>
       <div className="block lg:hidden">
@@ -104,24 +117,29 @@ function NavListMenu() {
             allowHover
             offset={6}
             open={openNestedMenu}
-            handler={setOpenNestedMenu}
+            handler={setopenNestedMenu}
           >
             <MenuHandler className="flex items-center justify-between">
-              <MenuItem>
+              <MenuItem className="hover:bg-gray-100 hover:text-blue-500 rounded-md transition-colors duration-150">
                 Figma
-                <FaChevronUp
+                <ChevronUpIcon
+                  strokeWidth={2.5}
                   className={`h-3.5 w-3.5 transition-transform ${
-                    openNestedMenu ? "rotate-90" : ""
+                    isMenuOpen ? "rotate-90" : ""
                   }`}
                 />
               </MenuItem>
             </MenuHandler>
-            <MenuList className="block rounded-xl lg:hidden">
+            <MenuList className="block rounded-lg shadow-lg bg-white lg:hidden ml-2">
               {renderItems}
             </MenuList>
           </Menu>
-          <MenuItem>React</MenuItem>
-          <MenuItem>TailwindCSS</MenuItem>
+          <MenuItem className="hover:bg-gray-100 hover:text-blue-500 rounded-md transition-colors duration-150">
+            React
+          </MenuItem>
+          <MenuItem className="hover:bg-gray-100 hover:text-blue-500 rounded-md transition-colors duration-150">
+            TailwindCSS
+          </MenuItem>
         </Collapse>
       </div>
     </React.Fragment>
@@ -138,7 +156,9 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Pages</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4 hover:bg-gray-100 rounded-md transition-all duration-200 text-lg">
+          Pages
+        </ListItem>
       </Typography>
       <Typography
         as="a"
@@ -147,7 +167,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 hover:bg-gray-100 rounded-md transition-all duration-200 text-lg">
           Account
         </ListItem>
       </Typography>
@@ -159,7 +179,9 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Docs</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4 hover:bg-gray-100 rounded-md transition-all duration-200 text-lg">
+          Docs
+        </ListItem>
       </Typography>
     </List>
   );
@@ -176,22 +198,24 @@ export function NavigationbarWithDropdownMultilevelMenu() {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
-      <div className="flex items-center justify-between text-blue-gray-900">
+    <Navbar className="max-w-screen-3xl px-4 py-5 bg-white shadow-md rounded-lg">
+      <div className="flex items-center justify-between text-blue-gray-900 ">
         <Typography
           as="a"
           href="#"
           variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2 text-blue-600 text-lg"
         >
           Material Tailwind
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="hidden gap-2 lg:flex">
-          <Button size="sm">Get Started</Button>
-          <Button variant="outlined" size="sm">
+        <div className="hidden gap-2 lg:flex ">
+          <Button size="sm" color="blue" className="text-lg">
+            Get Started
+          </Button>
+          <Button variant="outlined" size="sm" color="blue" className="text-lg">
             Log In
           </Button>
         </div>
@@ -201,19 +225,24 @@ export function NavigationbarWithDropdownMultilevelMenu() {
           onClick={() => setOpenNav(!openNav)}
         >
           {openNav ? (
-            <FaTimes className="h-6 w-6" />
+            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
           ) : (
-            <FaBars className="h-6 w-6" />
+            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
           )}
         </IconButton>
       </div>
       <Collapse open={openNav}>
-        {/* <NavList /> */}
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Button size="sm" fullWidth>
+          <Button size="sm" fullWidth color="blue" className="text-lg">
             Get Started
           </Button>
-          <Button variant="outlined" size="sm" fullWidth>
+          <Button
+            variant="outlined"
+            size="sm"
+            fullWidth
+            color="blue"
+            className="text-lg"
+          >
             Log In
           </Button>
         </div>
