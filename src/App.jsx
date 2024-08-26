@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./index.css";
 import Homepage from "./Pages/Homepage";
 import ProductPage from "./Pages/ProductPage";
 import EquipmentCategoryDetailPage from "./Components/Productdetailpage";
-
 import Contact from "./Pages/Contact";
 import ServiceAndCalibration from "./ServiceAndCalibration/ServiceAndCalibration";
 import NotFound from "./Pages/NotFound";
@@ -14,42 +11,38 @@ import AddProductForm from "./Pages/AddProduct";
 import WhoAreWe from "./AboutUs/WhoAreWe";
 import SignIn from "./Pages/Loginpage";
 import AdminProducts from "./Pages/AdminProducts";
+import PrivateRoute from "./Auth/PrivateRoute";
 
 function App() {
   return (
-    <>
-      <Router>
-        <div>
-          {/* Route Definitions */}
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/product" element={<ProductPage />} />
-            <Route path="/contact-us" element={<Contact />} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/WhoAreWe" element={<WhoAreWe />} />
+        <Route
+          path="/equipment-category"
+          element={<EquipmentCategoryDetailPage />}
+        />
+        <Route
+          path="/ServiceAndCalibration"
+          element={<ServiceAndCalibration />}
+        />
 
-            {/* <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<SignIn />} /> */}
-              <Route path="/addEquipment" element={<AddProductForm/>} />
-              <Route path="/adminProduct" element={<AdminProducts/>} />
-              <Route path="/admin/register" element={<AddAdmin/>} />
-              <Route path="/admin/login" element={<SignIn/>} />
-              {/* <Route path="/addEquipment/addAadmin" element={<AddAdmin />} /> */}
-            {/* </Route> */}
+        {/* Public admin login route */}
+        <Route path="/admin/login" element={<SignIn />} />
 
-            <Route path="/WhoAreWe" element={<WhoAreWe />} />
+        {/* Protected admin routes */}
+        {/* <Route path="/admin" element={<PrivateRoute />}>
+          <Route path="addEquipment" element={<AddProductForm />} />
+          <Route path="adminProduct" element={<AdminProducts />} />
+          <Route path="register" element={<AddAdmin />} />
+        </Route> */}
 
-            <Route
-              path="/equipment-category"
-              element={<EquipmentCategoryDetailPage />}
-            />
-            <Route
-              path="/ServiceAndCalibration"
-              element={<ServiceAndCalibration />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </Router>
-    </>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 

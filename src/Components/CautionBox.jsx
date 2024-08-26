@@ -3,7 +3,7 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/solid"; // Heroicon
 
 const CautionBox = () => {
   return (
-    <div className="bg-yellow-100 border-2-4 border-yellow-400 text-yellow-700 p-4 rounded-lg flex items-start shadow-md m-10">
+    <div className="bg-yellow-100 border-2-4 border-yellow-400 text-yellow-700 p-4 rounded-lg flex items-start shadow-md mx-20 mb-5">
       <ExclamationTriangleIcon className="h-6 w-6 text-yellow-500 mr-3" />
       <div>
         <h4 className="font-bold mb-2">PHYSICAL PROPERTY TESTING EQUIPMENT</h4>

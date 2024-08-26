@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
             className="object-contain w-full h-48 md:h-64 lg:h-72"
           />
         </div>
-        <div className="md:w-3/10 p-4 flex flex-col justify-between">
+        <div className="md:w-3/10 p-4 flex bg-gray-100 flex-col justify-between">
           <div className="text-lg font-semibold">{product.productName}</div>
           <div className="text-md text-gray-600 font-semibold">
             {product.category}

@@ -1,45 +1,39 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
+import WhatsAppIcon from "../Components/WhatsAppIcon";
 
 function WhoAreWe() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="text-center md:px-10 md:pb-10 pt-10 text-2xl font-black">
         ABOUT US
       </div>
-      <div className="min-h-screen text-start px-4 md:px-16 py-10 font-normal text-lg">
-        We are the "JANTA ENGINEERING (JE)" manufacturers and suppliers of
-        "Precision Testing Instruments" mainly for testing the properties of
-        Pulp, Paper and Paper Board for Paper, Conversion and Allied Industries.
-        JE is committed to the Total Quality Management principles i.e. adhering
-        to a continuous review and improvement based on the performance feedback
-        from customers and production shops while simultaneously keeping pace
-        with the developing trends elsewhere. JE has the relevant preventive
-        maintenance and calibration services to assist the industry in meeting
-        their future requirements. The unit has adequate and elaborate
-        facilities for design, manufacture, testing and calibration of all
-        instruments for pulp and paper industry and in- fact it is fully
-        geared-up for undertaking any similar kind of instrumentation to suit
-        the needs of any industry. The infrastructure comprises all requisite
-        operations to carry out processes from concept to commissioning
-        including intensive calibration in our own labs well equipped with
-        standard calibrated instruments / equipments as per the National and
-        International Test Norms. The unit is equipped with highly skilled, and
-        experienced manpower to meet the present day requirements and to respond
-        rapidly to future opportunities. JE designers, development engineers,
-        production engineers marketing and field service personnels have one
-        common overriding objective i.e. to upgrade and Improve the design,
-        production and testing technology to help, develop and maintain the
-        quality of our products on a continuous basis. JE believes primarily in
-        customer's satisfaction through sever quality assurance systems to
-        ensure the right and the best quality at all stages along with providing
-        of maintenance and calibration services so as to eliminate or reduce the
-        equipment failure and mal-operation to the minimum. Besides the above
-        operations the company has an ambitious growth plan to extend its areas
-        of operations and to emerge as the valuable associates of renowned
-        international companies.
+      <div className=" text-center min-h-screen px-20 py-10 font-medium text-lg">
+        <p className="text-start mb-5">
+          JANTA ENGNEERING (JE) came into existence in a small way in 1970 and gradually developed into a strong team of designers and engineers working cohesively to manufacture precision testing equipment for pulp, paper, paper board, conversion, and allied Industries. Its engineering expertise grew so tremendously that it diversified its product portfolio to include handmade paper machines as well as paint production machines used in producing Prakritik paint. Today, JE occupies the status of a globally recognized company both in domestic and export markets.
+
+        </p>
+        <p className="text-start mb-5">
+          JE is committed to Total Quality Management principles i.e., adhering to a continuous review and improvement based on performance feedback from the customers and production shops while simultaneously keeping pace with the developing trends elsewhere. It has achieved international recognition for its quality systems by securing ISO-9001. JE has relevant preventive maintenance and calibration services to assist the industry in meeting its future requirements.
+
+        </p>
+        <p className="text-start mb-5">
+          The unit has adequate and elaborate facilities for designing, manufacturing, testing, and calibration of its machines. The infrastructure comprises all requisite operations to carry out processes from concept to commissioning including intensive calibration in our own labs well equipped with standard calibrated instruments/equipment as per the national and international test norms. JE has highly skilled and experienced manpower to meet today’s customer requirements and to respond rapidly to future opportunities. JE’s designers, engineers, technicians, and field service personnel have one common overriding objective to upgrade and improve the design, production, and testing technology helping to enhance the quality of our products on a continuous basis.
+
+        </p>
+        <p className="text-start mb-5">
+          JE believes in customer satisfaction through rigorous quality assurance systems to ensure the right and the best quality at all stages. JE provides maintenance and calibration services to eliminate equipment failure and reduce malfunction to a minimum.
+
+        </p>
+        <p className="text-start mb-5">
+          Besides the above operations, the company has an ambitious growth plan to extend its areas of operations and to emerge as a valuable associate of renowned international companies.
+
+        </p>
+      </div>
+      <div className="fixed bottom-5 right-5">
+        <WhatsAppIcon phoneNumber="9084730912" />
       </div>
       <Footer />
     </>

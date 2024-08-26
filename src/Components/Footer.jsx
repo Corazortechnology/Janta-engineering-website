@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -17,19 +18,34 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-bold mb-4">Pages</h3>
           <ul className="flex ">
-            <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
-              Home
-            </li>
-            <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
-              About
-            </li>
-            <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
-              Products
-            </li>
-            <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
-              Blog
-            </li>
-            <li className="ml-2 hover:text-gray-400 cursor-pointer">Contact</li>
+            <Link to="/">
+              {" "}
+              <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
+                Home
+              </li>
+            </Link>
+            <Link to="/whoAreWe">
+              <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
+                About
+              </li>
+            </Link>
+            <Link to="/product">
+              <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
+                Products
+              </li>
+            </Link>
+            <Link to="/ServiceAndCalibration">
+              {" "}
+              <li className="mb-2 ml-2 hover:text-gray-400 cursor-pointer">
+                Service
+              </li>
+            </Link>
+            <Link to="contact-us">
+              {" "}
+              <li className="ml-2 hover:text-gray-400 cursor-pointer">
+                Contact
+              </li>
+            </Link>
           </ul>
         </div>
 
@@ -63,13 +79,13 @@ const Footer = () => {
           <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
           <ul>
             <li className="mb-2 flex items-center">
-              <FaPhone className="mr-2" /> +123 456 7890
+              <FaPhone className="mr-2" /> +91 941 213 0912
             </li>
             <li className="mb-2 flex items-center">
-              <FaEnvelope className="mr-2" /> info@example.com
+              <FaEnvelope className="mr-2" /> Info@jantaengineering.in
             </li>
             <li className="flex items-center">
-              <FaMapMarkerAlt className="mr-2" /> 123 Main Street, City, Country
+              <FaMapMarkerAlt className="mr-2" /> Uttar Pradesh, India
             </li>
           </ul>
         </div>

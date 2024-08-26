@@ -1,21 +1,33 @@
-import React, { createContext, useContext, useState } from "react";
+// import { createContext, useContext, useState } from "react";
 
-// Create a Context for the authentication
-const AuthContext = createContext();
+// const AuthContext = createContext();
 
-// Create a Provider component
-export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+// export const useAuth = () => useContext(AuthContext);
 
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
+// export const AuthProvider = ({ children }) => {
+//   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+//   const login = () => setIsAuthenticated(true);
+//   const logout = () => setIsAuthenticated(false);
+
+//   return (
+//     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+//       {children}
+//     </AuthContext.Provider>
+//   );
+// };
+
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+
+// This is a dummy authentication function, replace it with your actual authentication logic
+const isAuthenticated = () => {
+  // For example, check if the token exists in localStorage
+  return localStorage.getItem("token") !== null;
 };
 
-// Create a hook to use the AuthContext
-export const useAuth = () => useContext(AuthContext);
+const PrivateRoute = () => {
+  return isAuthenticated() ? <Outlet /> : <Navigate to="/admin/login" />;
+};
+
+export default PrivateRoute;

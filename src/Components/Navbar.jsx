@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+} from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export function Navbar() {
@@ -71,20 +76,29 @@ export function Navbar() {
                       <span>LAB TESTING EQUIPMENT</span>
                     </MenuItem>
                   </MenuHandler>
-                  <MenuList className="ml-72 bg-white shadow-lg rounded-md z-30">
+                  <MenuList className="ml-72  bg-white shadow-lg rounded-md p-3 z-30">
                     {nestedMenuItems.map(({ title }, key) => (
-                      <MenuItem onClick={() => handleNavigation(title)} key={key} className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3 ">
-                        <Link >{title}</Link>
+                      <MenuItem
+                        onClick={() => handleNavigation(title)}
+                        key={key}
+                        className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3 "
+                      >
+                        <Link>{title}</Link>
                       </MenuItem>
                     ))}
-
                   </MenuList>
                 </Menu>
-                <MenuItem onClick={() => handleNavigation("HANDMADE PAPER MACHINES")} className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3">
-                  <Link >HANDMADE PAPER MACHINES</Link>
+                <MenuItem
+                  onClick={() => handleNavigation("HANDMADE PAPER MACHINES")}
+                  className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3"
+                >
+                  <Link>HANDMADE PAPER MACHINES</Link>
                 </MenuItem>
-                <MenuItem onClick={() => handleNavigation("PRAKRITIK PAINT MACHINES")} className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3">
-                  <Link >PRAKRITIK PAINT MACHINES</Link>
+                <MenuItem
+                  onClick={() => handleNavigation("PRAKRITIK PAINT MACHINES")}
+                  className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3"
+                >
+                  <Link>PRAKRITIK PAINT MACHINES</Link>
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -96,36 +110,97 @@ export function Navbar() {
               </MenuHandler>
               <MenuList className="bg-white shadow-lg rounded-md z-30 mt-5">
                 <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
-                  <Link to={{ pathname: "/product" }} state={{ title: "NEWSPRINT" }}> NEWSPRINT</Link>
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "NEWSPRINT" }}
+                  >
+                    {" "}
+                    NEWSPRINT
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "WRITING PRINTING/COPIER" }}>WRITING PRINTING/COPIER</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "WRITING PRINTING/COPIER" }}
+                  >
+                    WRITING PRINTING/COPIER
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "DUPLEX AND ART PAPER" }}>DUPLEX AND ART PAPER</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "DUPLEX AND ART PAPER" }}
+                  >
+                    DUPLEX AND ART PAPER
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "KRAFT LINER/FLUTING PAPER/SACK" }}>KRAFT LINER/FLUTING PAPER/SACK</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "KRAFT LINER/FLUTING PAPER/SACK" }}
+                  >
+                    KRAFT LINER/FLUTING PAPER/SACK
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "CORRUGATED FIBRE BOARD BOX BOARD" }}>CORRUGATED FIBRE BOARD BOX BOARD</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "CORRUGATED FIBRE BOARD BOX BOARD" }}
+                  >
+                    CORRUGATED FIBRE BOARD BOX BOARD
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "TISSUE & SOFT MATERIAL" }}>TISSUE & SOFT MATERIAL</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "TISSUE & SOFT MATERIAL" }}
+                  >
+                    TISSUE & SOFT MATERIAL
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "PULP TESTING RAW MATERIAL RECYCLED FIBRE" }}>PULP TESTING RAW MATERIAL RECYCLED FIBRE</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{
+                      title: "PULP TESTING RAW MATERIAL RECYCLED FIBRE",
+                    }}
+                  >
+                    PULP TESTING RAW MATERIAL RECYCLED FIBRE
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "PULP TESTING RAW MATERIAL WOOD FIBRE" }}>PULP TESTING RAW MATERIAL WOOD FIBRE</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "PULP TESTING RAW MATERIAL WOOD FIBRE" }}
+                  >
+                    PULP TESTING RAW MATERIAL WOOD FIBRE
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                  state={{ title: "PULP TESTING RAW MATERIAL AGRO FIBRE" }} >PULP TESTING RAW MATERIAL AGRO FIBRE</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "PULP TESTING RAW MATERIAL AGRO FIBRE" }}
+                  >
+                    PULP TESTING RAW MATERIAL AGRO FIBRE
+                  </Link>
                 </MenuItem>
-                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }} state={{ title: "Items" }}
-                >Items</Link>
+                <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                  {" "}
+                  <Link
+                    to={{ pathname: "/product" }}
+                    state={{ title: "Items" }}
+                  >
+                    Items
+                  </Link>
                 </MenuItem>
-
               </MenuList>
               <Link to="/ServiceAndCalibration">
                 <button className="text-gray-600 hover:text-blue-600 text-lg font-bold">
@@ -160,8 +235,6 @@ export function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white shadow-md p-4">
-
-
           <Menu>
             <Link to="/WhoAreWe">
               <button className="font-medium text-gray-900 hover:text-blue-600 w-full text-left pl-5 p-3 text-lg font-md">
@@ -182,21 +255,29 @@ export function Navbar() {
                 </MenuHandler>
                 <MenuList className="bg-white shadow-lg rounded-md p-3 z-30 ">
                   {nestedMenuItems.map(({ title }, key) => (
-                    <MenuItem onClick={() => handleNavigation(title)} key={key} className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
-                      <Link >{title}</Link>
+                    <MenuItem
+                      onClick={() => handleNavigation(title)}
+                      key={key}
+                      className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300"
+                    >
+                      <Link>{title}</Link>
                     </MenuItem>
                   ))}
-
                 </MenuList>
               </Menu>
-              <MenuItem onClick={() => handleNavigation("HANDMADE PAPER MACHINES")} className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
-                <Link >HANDMADE PAPER MACHINES</Link>
+              <MenuItem
+                onClick={() => handleNavigation("HANDMADE PAPER MACHINES")}
+                className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300"
+              >
+                <Link>HANDMADE PAPER MACHINES</Link>
               </MenuItem>
-              <MenuItem onClick={() => handleNavigation("PRAKRITIK PAINT MACHINES")} className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
-                <Link >PRAKRITIK PAINT MACHINES</Link>
+              <MenuItem
+                onClick={() => handleNavigation("PRAKRITIK PAINT MACHINES")}
+                className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300"
+              >
+                <Link>PRAKRITIK PAINT MACHINES</Link>
               </MenuItem>
             </MenuList>
-
           </Menu>
           <Menu>
             <MenuHandler>
@@ -206,36 +287,92 @@ export function Navbar() {
             </MenuHandler>
             <MenuList className="bg-white shadow-lg rounded-md z-30">
               <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
-                <Link to={{ pathname: "/product" }} state={{ title: "NEWSPRINT" }}> NEWSPRINT</Link>
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "NEWSPRINT" }}
+                >
+                  {" "}
+                  NEWSPRINT
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "WRITING PRINTING/COPIER" }}>WRITING PRINTING/COPIER</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "WRITING PRINTING/COPIER" }}
+                >
+                  WRITING PRINTING/COPIER
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "DUPLEX AND ART PAPER" }}>DUPLEX AND ART PAPER</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "DUPLEX AND ART PAPER" }}
+                >
+                  DUPLEX AND ART PAPER
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "KRAFT LINER/FLUTING PAPER/SACK" }}>KRAFT LINER/FLUTING PAPER/SACK</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "KRAFT LINER/FLUTING PAPER/SACK" }}
+                >
+                  KRAFT LINER/FLUTING PAPER/SACK
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "CORRUGATED FIBRE BOARD BOX BOARD" }}>CORRUGATED FIBRE BOARD BOX BOARD</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "CORRUGATED FIBRE BOARD BOX BOARD" }}
+                >
+                  CORRUGATED FIBRE BOARD BOX BOARD
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "TISSUE & SOFT MATERIAL" }}>TISSUE & SOFT MATERIAL</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "TISSUE & SOFT MATERIAL" }}
+                >
+                  TISSUE & SOFT MATERIAL
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "PULP TESTING RAW MATERIAL RECYCLED FIBRE" }}>PULP TESTING RAW MATERIAL RECYCLED FIBRE</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "PULP TESTING RAW MATERIAL RECYCLED FIBRE" }}
+                >
+                  PULP TESTING RAW MATERIAL RECYCLED FIBRE
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "PULP TESTING RAW MATERIAL WOOD FIBRE" }}>PULP TESTING RAW MATERIAL WOOD FIBRE</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "PULP TESTING RAW MATERIAL WOOD FIBRE" }}
+                >
+                  PULP TESTING RAW MATERIAL WOOD FIBRE
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }}
-                state={{ title: "PULP TESTING RAW MATERIAL AGRO FIBRE" }} >PULP TESTING RAW MATERIAL AGRO FIBRE</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link
+                  to={{ pathname: "/product" }}
+                  state={{ title: "PULP TESTING RAW MATERIAL AGRO FIBRE" }}
+                >
+                  PULP TESTING RAW MATERIAL AGRO FIBRE
+                </Link>
               </MenuItem>
-              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">                                    <Link to={{ pathname: "/product" }} state={{ title: "Items" }}
-              >Items</Link>
+              <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
+                {" "}
+                <Link to={{ pathname: "/product" }} state={{ title: "Items" }}>
+                  Items
+                </Link>
               </MenuItem>
-
             </MenuList>
             <Link to="/ServiceAndCalibration">
               <button className="font-medium text-gray-900 hover:text-blue-600 w-full text-left pl-5 p-3 text-lg font-md">

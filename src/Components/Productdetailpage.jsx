@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import { useLocation } from "react-router-dom";
 import Button from "./Button";
 import Navbar from "./Navbar";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const EquipmentCategoryDetailPage = () => {
   const location = useLocation();
@@ -112,7 +113,7 @@ const EquipmentCategoryDetailPage = () => {
                           Product Code
                         </th>
                         <td className="py-2 px-4 border-b border-gray-200 text-gray-600">
-                          {product.productCode}
+                          {/* {product.productCode} */}
                         </td>
                       </tr>
                       <tr>
@@ -203,6 +204,9 @@ const EquipmentCategoryDetailPage = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="fixed bottom-5 right-5">
+          <WhatsAppIcon phoneNumber="9084730912" />
         </div>
         <Footer />
       </div>

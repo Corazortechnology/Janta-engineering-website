@@ -13,13 +13,13 @@ function ContactUs() {
   return (
     <>
       <div className="bg-gray-100 flex items-center justify-center py-20">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full md:max-w-3xl">
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Contact Us
           </h2>
           <form className="space-y-4" onSubmit={handleSubmit}>
-            <div className="flex space-x-6">
-              <div className="w-1/2">
+            <div className="md:flex md:space-x-6">
+              <div className="md:w-1/2 w-full">
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700"
@@ -33,7 +33,7 @@ function ContactUs() {
                   placeholder="Your Name"
                 />
               </div>
-              <div className="w-1/2">
+              <div className="md:w-1/2 w-full">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700"
@@ -48,8 +48,8 @@ function ContactUs() {
                 />
               </div>
             </div>
-            <div className="flex space-x-6">
-              <div className="w-1/2">
+            <div className="md:flex md:space-x-6">
+              <div className="md:w-1/2 w-full">
                 <label
                   htmlFor="phone"
                   className="block text-sm font-medium text-gray-700"
@@ -63,7 +63,7 @@ function ContactUs() {
                   placeholder="Your Phone Number"
                 />
               </div>
-              <div className="w-1/2">
+              <div className="md:w-1/2 w-full">
                 <label
                   htmlFor="address"
                   className="block text-sm font-medium text-gray-700"

@@ -1,11 +1,25 @@
+// import { Navigate, Outlet } from "react-router-dom";
+// import { useAuth } from "./AuthContext"; // Assuming you have an AuthProvider
+
+// const PrivateRoute = () => {
+//   const { isAuthenticated } = useAuth();
+
+//   return isAuthenticated ? <Outlet /> : <Navigate to="/admin/login" />;
+// };
+
+// export default PrivateRoute;
+
 import React from "react";
-import { useAuth } from "./AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateRoute = ({ element }) => {
-  const { isAuthenticated } = useAuth();
+// This is a dummy authentication function, replace it with your actual authentication logic
+const isAuthenticated = () => {
+  // For example, check if the token exists in localStorage
+  return localStorage.getItem("token") !== null;
+};
 
-  return isAuthenticated ? element : <Navigate to="/Login" />;
+const PrivateRoute = () => {
+  return isAuthenticated() ? <Outlet /> : <Navigate to="/admin/login" />;
 };
 
 export default PrivateRoute;
