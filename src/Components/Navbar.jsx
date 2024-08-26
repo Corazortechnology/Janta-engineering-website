@@ -64,14 +64,14 @@ export function Navbar() {
                   PRODUCTS
                 </button>
               </MenuHandler>
-              <MenuList className="bg-white shadow-lg rounded-md p-2 z-20 mt-5">
+              <MenuList className=" bg-white shadow-lg rounded-md p-2 z-20 mt-5 ">
                 <Menu>
                   <MenuHandler>
                     <MenuItem className="text-gray-600 hover:text-blue-600 text-mg font-bold p-3 border-b-2 border-gray-300">
                       <span>LAB TESTING EQUIPMENT</span>
                     </MenuItem>
                   </MenuHandler>
-                  <MenuList className="bg-white shadow-lg rounded-md p-3 z-30">
+                  <MenuList className="ml-72 bg-white shadow-lg rounded-md z-30">
                     {nestedMenuItems.map(({ title }, key) => (
                       <MenuItem onClick={() => handleNavigation(title)} key={key} className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3 ">
                         <Link >{title}</Link>
