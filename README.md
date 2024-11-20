@@ -1,6 +1,6 @@
 # React + Vite
 
-Deployed to Azure : https://brave-bay-07370f810.5.azurestaticapps.net/
+Deployed to vercel : 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
