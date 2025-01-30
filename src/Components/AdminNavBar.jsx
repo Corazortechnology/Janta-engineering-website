@@ -26,6 +26,11 @@ function AdminNavBar() {
                 Add Admin
               </button>
             </Link>
+            <Link to="/admin/dashboard/addCategory">
+              <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
+                Add Category
+              </button>
+            </Link>
             <Link to="/admin/dashboard/adminProduct">
               <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
                 My Products

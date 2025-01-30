@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Menu,
@@ -6,14 +6,39 @@ import {
   MenuList,
   MenuItem,
 } from "@material-tailwind/react";
-import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
+const API_URL = import.meta.env.VITE_JE_API_URL;
+
 export function Navbar() {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search popup
   const [searchQuery, setSearchQuery] = useState(""); // State to handle search input
+  const [categories, setCategories] = useState([]);
+  console.log("00", categories);
 
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/v1/categories`);
+      if (response.ok) {
+        const data = await response.json();
+        setCategories(data); // Assuming `data` is an array of categories
+      } else {
+        toast.error("Failed to fetch categories");
+      }
+    } catch (error) {
+      toast.error("Error fetching categories");
+    }
+  };
 
   const nestedMenuItems = [
     {
@@ -81,8 +106,7 @@ export function Navbar() {
   // Handle the search functionality (for demonstration)
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      
-      navigate('/product', { state: { searchQuery } });
+      navigate("/product", { state: { searchQuery } });
       setIsSearchOpen(false); // Close popup after search
     }
   };
@@ -115,7 +139,7 @@ export function Navbar() {
                   PRODUCTS
                 </button>
               </MenuHandler>
-              <MenuList className=" bg-white shadow-lg rounded-md p-2 z-20 mt-5 ">
+              {/* <MenuList className=" bg-white shadow-lg rounded-md p-2 z-20 mt-5 ">
                 <MenuItem
                   onClick={() =>
                     handleNavigation("HANDMADE PAPER MACHINES", "category")
@@ -160,6 +184,41 @@ export function Navbar() {
                     </MenuList>
                   )}
                 </Menu>
+              </MenuList> */}
+              <MenuList className=" bg-white shadow-lg rounded-md p-2 z-20 mt-5 ">
+                {categories.map((category, index) => (
+                  <div key={index}>
+                    <MenuItem
+                      onMouseEnter={handleMenuListEnter} // Keep menu open when hovering over it
+                      onMouseLeave={handleMenuListLeave}
+                      onClick={() =>
+                        handleNavigation(category.name, "category")
+                      }
+                      className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3"
+                    >
+                      <Link>{category.name}</Link>
+                    </MenuItem>
+                    {category.subcategories.length > 0 && (
+                      <MenuList
+                        onMouseEnter={handleMenuListEnter} // Keep menu open when hovering over it
+                        onMouseLeave={handleMenuListLeave}
+                        className="bg-white shadow-lg rounded-md p-3 z-30 mt-40"
+                      >
+                        {category.subcategories.map((sub, subIndex) => (
+                          <MenuItem
+                            key={subIndex}
+                            onClick={() =>
+                              handleNavigation(sub.name, "subcategory")
+                            }
+                            className="text-gray-600 hover:text-blue-600 text-mg border-b-2 border-gray-300 font-bold p-3"
+                          >
+                            <Link>{sub.name}</Link>
+                          </MenuItem>
+                        ))}
+                      </MenuList>
+                    )}
+                  </div>
+                ))}
               </MenuList>
             </Menu>
 
@@ -290,13 +349,12 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Search Icon */}
-          <button
-             onClick={toggleSearchPopup}
+            <button
+              onClick={toggleSearchPopup}
               className="text-gray-600 hover:text-blue-600 transition duration-150 mt-1 w-1 text-center"
             >
               <MagnifyingGlassIcon className="w-6 h-6 mx-auto" />
             </button>
-
           </div>
 
           {/* Mobile Menu Button */}
@@ -505,20 +563,22 @@ export function Navbar() {
             Contact Us
           </Link>
 
-         {/* Mobile Search Icon */}
-         <button
-             onClick={toggleSearchPopup}
-              className="text-gray-600 hover:text-blue-600 transition duration-150 mt-1 w-1 text-center"
-            >
-              <MagnifyingGlassIcon className="w-6 h-6 mx-auto" />
-            </button>
+          {/* Mobile Search Icon */}
+          <button
+            onClick={toggleSearchPopup}
+            className="text-gray-600 hover:text-blue-600 transition duration-150 mt-1 w-1 text-center"
+          >
+            <MagnifyingGlassIcon className="w-6 h-6 mx-auto" />
+          </button>
         </div>
       )}
 
-
-{/* Search Popup */}
-    {isSearchOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50" onClick={() => setIsSearchOpen(false)}>
+      {/* Search Popup */}
+      {isSearchOpen && (
+        <div
+          className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50"
+          onClick={() => setIsSearchOpen(false)}
+        >
           <div
             className="bg-white shadow-lg rounded-md p-4 w-80 sm:w-96 relative flex-col"
             onClick={(e) => e.stopPropagation()} // Prevent click inside the popup from closing it
@@ -545,12 +605,8 @@ export function Navbar() {
           </div>
         </div>
       )}
-
-
     </nav>
   );
 }
 
 export default Navbar;
-
-

@@ -1,6 +1,7 @@
 import { Spinner } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_JE_API_URL;
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -13,16 +14,13 @@ const SignIn = () => {
     setLoding(true);
 
     try {
-      const response = await fetch(
-        "https://janta-engineering-server.onrender.com/api/v1/users/loginAdmin",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch(`${API_URL}/api/v1/users/loginAdmin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
       const result = await response.json();
 

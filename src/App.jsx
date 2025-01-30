@@ -70,6 +70,7 @@ import PrivateRoute from "./Auth/PrivateRoute";
 import AdminDashboard from "./Pages/Admindashboard";
 import ServiceAndCalibration from "./ServiceAndCalibration/ServiceAndCalibration";
 import SearchPopap from "./SearchBar/SearchPopap";
+import AdminCategoryPage from "./Pages/AdminCategoryPage";
 function App() {
   return (
     <Router basename="/">
@@ -88,16 +89,14 @@ function App() {
           path="/ServiceAndCalibration"
           element={<ServiceAndCalibration />}
         />
-        <Route
-        path="/product/search"
-        element={<SearchPopap/>}
-        />
+        <Route path="/product/search" element={<SearchPopap />} />
         <Route path="/admin" element={<SignIn />} />
 
         <Route path="/admin/dashboard" element={<PrivateRoute />}>
           <Route index element={<AdminDashboard />} />
           <Route path="addEquipment" element={<AddProductForm />} />
           <Route path="register" element={<AddAdmin />} />
+          <Route path="addCategory" element={<AdminCategoryPage />} />
           <Route path="adminProduct" element={<AdminProducts />} />
         </Route>
 

@@ -2,6 +2,7 @@ import { Spinner } from "@material-tailwind/react";
 import React, { useState } from "react";
 import AdminNavBar from "../Components/AdminNavBar";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_JE_API_URL;
 
 const AddProductForm = () => {
   const navigate = useNavigate();
@@ -119,16 +120,13 @@ const AddProductForm = () => {
     formPayload.append("testingApplications", formData.testingApplications);
 
     try {
-      const response = await fetch(
-        "https://janta-engineering-server.onrender.com/api/v1/equipment/equipment",
-        {
-          method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          body: formPayload,
-        }
-      );
+      const response = await fetch(`${API_URL}/api/v1/equipment/equipment`, {
+        method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        body: formPayload,
+      });
       const result = await response.json();
 
       if (result.success) {

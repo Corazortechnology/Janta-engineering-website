@@ -2,6 +2,7 @@ import { Spinner } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AdminNavBar from "../Components/AdminNavBar";
+const API_URL = import.meta.env.VITE_JE_API_URL;
 
 const AddAdmin = () => {
   const [username, setUsername] = useState("");
@@ -20,16 +21,13 @@ const AddAdmin = () => {
     }
     // Submit form data to the server or handle it accordingly
     try {
-      const response = await fetch(
-        "https://janta-engineering-server.onrender.com/api/v1/users/createAdmin",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json", // Ensure the content type is set to JSON
-          },
-          body: JSON.stringify({ name: username, email, password }), // Pass the necessary data
-        }
-      );
+      const response = await fetch(`${API_URL}/api/v1/users/createAdmin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Ensure the content type is set to JSON
+        },
+        body: JSON.stringify({ name: username, email, password }), // Pass the necessary data
+      });
 
       const result = await response.json();
 

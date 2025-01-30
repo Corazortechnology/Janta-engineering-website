@@ -8,10 +8,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import WhatsAppIcon from "../Components/WhatsAppIcon";
 import Sidebar from "../Components/Sidebar";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+const API_URL = import.meta.env.VITE_JE_API_URL;
 
 const ProductPage = () => {
   const location = useLocation();
-  const { title, type,searchQuery } = location.state || "";
+  const { title, type, searchQuery } = location.state || "";
 
   const [equipmentData, setEquipmentData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,9 +43,7 @@ const ProductPage = () => {
   const getEquipment = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(
-        "https://janta-engineering-server.onrender.com/api/v1/equipment/equipment"
-      );
+      const response = await fetch(`${API_URL}/api/v1/equipment/equipment`);
       const result = await response.json();
 
       if (result.success) {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import EquipmentList from "../Components/EquipmentCard";
 import { Spinner } from "@material-tailwind/react";
 import AdminNavBar from "../Components/AdminNavBar";
+const API_URL = import.meta.env.VITE_JE_API_URL;
 
 function AdminProducts() {
   const [equipmentData, setEquipmentData] = useState([]);
@@ -89,9 +90,7 @@ function AdminProducts() {
   const getEquipment = async () => {
     setIsLoding(true);
     try {
-      const response = await fetch(
-        "https://janta-engineering-server.onrender.com/api/v1/equipment/equipment"
-      );
+      const response = await fetch(`${API_URL}/api/v1/equipment/equipment`);
       const result = await response.json();
 
       if (result.success) {
@@ -139,7 +138,7 @@ function AdminProducts() {
     if (isConfirmed) {
       try {
         const response = await fetch(
-          `https://janta-engineering-server.onrender.com/api/v1/equipment/equipment/${id}`,
+          `${API_URL}/api/v1/equipment/equipment/${id}`,
           {
             method: "DELETE",
             // headers: {
@@ -169,7 +168,7 @@ function AdminProducts() {
 
     try {
       const response = await fetch(
-        `https://janta-engineering-server.onrender.com/api/v1/equipment/equipment/${id}`,
+        `${API_URL}/api/v1/equipment/equipment/${id}`,
         {
           method: "PUT",
 
